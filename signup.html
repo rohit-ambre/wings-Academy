@@ -1,0 +1,97 @@
+<! doctype html>
+<html>
+<meta charset="UTF-8">
+<head>
+	<title>Wing academy</title>
+		<link  rel="stylesheet" type="text/css" href="style.css" >
+		
+</head>
+<body>
+<?php
+ error_reporting('E_ALL ^ E_NOTICE');
+ if(isset($_POST['submit']))
+ {
+  mysql_connect('localhost','root','') or die(mysql_error());
+  mysql_select_db('new') or die(mysql_error());
+  $name=$_POST['name'];
+  $password=$_POST['password'];
+  $mail=$_POST['mail'];
+  $q=mysql_query("select * from login where name='".$name."' or mail='".$mail."' ") or die(mysql_error());
+  $n=mysql_fetch_row($q);
+  if($n>0)
+  {
+   $er='The username name '.$name.' or mail '.$mail.' is already present in our database';
+  }
+  else
+  {
+   $insert=mysql_query("insert into login values('".$name."','".$password."','".$mail."')") or die(mysql_error());
+   if($insert)
+   {
+    $er='You are registered successfully';
+   }
+   else
+   {
+    $er='Please try again';
+   }
+  }
+ }
+?>
+	<div class="header">
+	<a href="index.html"><h1>WING ACADEMY</h1></a>
+		<ul class="header-link">
+			<li><a href="index.html"><button id="button0">Home</button></a></li>
+			<li><a href="about.html"><button id="button1">About</button></a></li>
+			<li><a href="courses.html"><button id="button2">Courses</button></a></li>
+			<li><a href="contactus.html"><button id="button3">Contact us</button></a></li>
+			<li><a href="login.php"><button id="button4">Log In</button></a></li>
+		</ul>
+	</div>
+	
+	<div class="signupback">
+		<div id="signup">
+		<h2 class="signub">SIGN UP!</h2>
+		<?php echo $er1; ?>
+			<div class="signupform">
+			
+				<form>Name: &nbsp &nbsp &nbsp <input type="text" name="name" size="22" maxlength="14" >
+					<br />  
+					Email: &nbsp &nbsp  &nbsp <input type="text" name="email" >
+				<br />	
+				
+					Password:&nbsp  <input type="password" name="password" size="24">
+					<br />
+				</form>
+			<input type="button" class="myButton5" name="submit" id="submit"  value="submit">	
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<div class="footer">
+		<div class="footer1">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="courses.html">Courses</a></li>
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="contactus.html">Contact Us</a></li>
+			</ul>
+
+		</div>
+		<div class="footer2">
+			<p>Today, we have a strong presence<br /> with 75 coaching centers,<br />
+				supported by over 500 well<br /> educated & experienced tutors.</p>
+		</div>
+		<div class="footer3">
+			<h2>Wing Academy</h2>
+			<ul class="footimg">
+				<li><a href="http://www.facebook.com" target="_blank"><img src="facebook.png"/></a></li>
+				<li><a href="http://www.google.com" target="_blank"><img src="google_plus.png"/></a></li>
+				<li><a href="http://www.twitter.com" target="_blank""><img src="twitter.png"/></a></li>
+				
+			</ul>
+		</div>
+		<div class="footer4">
+			<p> &copy; Copyright 2015 wingacademy.com • All rights reserved • Designed by Rohit</p>
+		</div>
+	</div>

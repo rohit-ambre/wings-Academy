@@ -1,0 +1,88 @@
+<html>
+	<title>Wing academy</title>
+	<head>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+		funtion validate()
+		{
+		var em=document.getElementById("email").value.indexof("@");
+		var name=document.getElementById("name").value;
+		submitOK="true";
+		
+		if(name.length>15)
+		{
+		alert("The name should have less than 15 characters");
+		submitOK="false";
+		}
+		if(em==-1)
+		{
+		alert("email id is not valid!");
+		submitOK="false"
+		}
+		if (submitOK=="false")
+			{
+			return false;
+			}
+		}
+	</script>
+	
+	</head>
+	<body>
+	<div class="header">
+	<a href="index.html"><h1>WING ACADEMY</h1></a>
+		<ul class="header-link">
+			<li><a href="index1.php"><button id="button0">Home</button></a></li>
+			<li><a href="about1html"><button id="button1">About</button></a></li>
+			<li><a href="courses1.html"><button id="button2">Courses</button></a></li>
+			<li><a href="contactus1.html"><button id="button3">Contact us</button></a></li>
+			<li><a href="logout.php"><button id="button4">Log out</button></a></li>
+		</ul>
+	</div>
+	<div class="contactback">
+		<div id="contact">
+		<h2 class="contactb">CONTACT US!</h2>
+		<br />
+			<div class="conform">
+			
+				<form action="" onsubmit="return validate()">
+					UserName: <input type="text" id="name "name="name" size="22" maxlength="15" >
+					<br /><br />
+					Email: <input type="text" id="email" name="email" size="42"  >
+					<br /><br />
+					Message: <textarea type="text" name="message" rows="8" cols="40"> </textarea>
+					<input type="button" class="myButton2" value="submit">	
+				</form>
+			
+			</div>
+		</div>	 	
+	</div>
+	<div class="footer">
+		<div class="footer1">
+			<ul>
+				<li><a href="index1.php">Home</a></li>
+				<li><a href="courses1html">Courses</a></li>
+				<li><a href="about1.html">About Us</a></li>
+				<li><a href="contactus1.html">Contact Us</a></li>
+			</ul>
+
+		</div>
+		<div class="footer2">
+			<p>Today, we have a strong presence<br /> with 75 coaching centers,<br />
+				supported by over 500 well<br /> educated & experienced tutors.</p>
+		</div>
+		<div class="footer3">
+			<h2>Wing Academy</h2>
+			<ul class="footimg">
+				<li><a href="http://www.facebook.com" target="_blank"><img src="facebook.png"/></a></li>
+				<li><a href="http://www.google.com" target="_blank"><img src="google_plus.png"/></a></li>
+				<li claas="1"><a href="http://www.twitter.com" target="_blank""><img src="twitter.png"/></a></li>
+				
+			</ul>
+		</div>
+		<div class="footer4">
+			<p>&copy; Copyright 2015 wingacademy.com • All rights reserved • Designed by Rohit</p>
+		</div>
+	</div>
+	</body>	
+</html>
